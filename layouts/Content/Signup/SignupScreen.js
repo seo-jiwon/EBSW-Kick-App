@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     buttonView: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: "center"
+        justifyContent: "center",
     },
     prevBtn: {
         alignItems: "center",

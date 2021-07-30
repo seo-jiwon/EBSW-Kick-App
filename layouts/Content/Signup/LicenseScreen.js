@@ -13,16 +13,29 @@ import { Camera } from 'expo-camera';
 import * as Permissions from 'expo-permissions';
 import { FontAwesome, Ionicons, MaterialCommunityIcons, Foundation } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
-
 /*
 constructor({ props }) {
         super(props);
     }
     */
 
-export default class LicenseScan extends React.Component {
-    
 
+/*
+getPermissionAsync = async () => {
+        // Camera roll Permission 
+        if (Platform.OS === 'ios') {
+            const { status } = await Permissions.askAsync(Permissions.CAMERA);
+            if (status !== 'granted') {
+                alert('Sorry, we need camera roll permissions to make this work!');
+            }
+        }
+        // Camera Permission
+        const { status } = await Permissions.askAsync(Permissions.CAMERA);
+        this.setState({ hasPermission: status === 'granted' });
+    }
+*/
+
+export default class LicenseScan extends React.Component {
     state = {
         hasPermission: null,
         cameraType: Camera.Constants.Type.back,
@@ -34,37 +47,20 @@ export default class LicenseScan extends React.Component {
     getPermissionAsync = async () => {
         // Camera roll Permission 
         if (Platform.OS === 'ios') {
-            const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+            const { status } = await Camera.requestPermissionsAsync();
             if (status !== 'granted') {
                 alert('Sorry, we need camera roll permissions to make this work!');
             }
         }
         // Camera Permission
-        const { status } = await Permissions.askAsync(Permissions.CAMERA);
+        const { status } = await Camera.requestPermissionsAsync();
         this.setState({ hasPermission: status === 'granted' });
-    }
-
-    handleCameraType = () => {
-        const { cameraType } = this.state
-
-        this.setState({
-            cameraType:
-                cameraType === Camera.Constants.Type.back
-                    ? Camera.Constants.Type.front
-                    : Camera.Constants.Type.back
-        })
     }
 
     takePicture = async () => {
         if (this.camera) {
             let photo = await this.camera.takePictureAsync();
-
         }
-    }
-    pickImage = async () => {
-        let result = await ImagePicker.launchImageLibraryAsync({
-            mediaTypes: ImagePicker.MediaTypeOptions.Images
-        });
     }
 
     render() {
@@ -76,48 +72,46 @@ export default class LicenseScan extends React.Component {
         } else {
             return (
                 <View style={{ flex: 1 }}>
-                    <Camera style={{ flex: 1 }} type={this.state.cameraType} ref={ref => { this.camera = ref }}>
-                        <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-between", margin: 30 }}>
-                            <TouchableOpacity
-                                style={{
-                                    alignSelf: 'flex-end',
-                                    alignItems: 'center',
-                                    backgroundColor: 'transparent'
-                                }}
-                                onPress={() => this.pickImage()}>
-                                <Foundation
-                                    name="photo"
-                                    style={{ color: "#fff", fontSize: 40 }}
-                                />
-                            </TouchableOpacity>
-                            <TouchableOpacity
-                                style={{
-                                    alignSelf: 'flex-end',
-                                    alignItems: 'center',
-                                    backgroundColor: 'transparent',
-                                }}
-                                onPress={() => this.takePicture()}
-                            >
-                                <FontAwesome
-                                    name="camera"
-                                    style={{ color: "#fff", fontSize: 40 }}
-                                />
-                            </TouchableOpacity>
-                            <TouchableOpacity
-                                style={{
-                                    alignSelf: 'flex-end',
-                                    alignItems: 'center',
-                                    backgroundColor: 'transparent',
-                                }}
-                                onPress={() => this.handleCameraType()}
-                            >
-                                <MaterialCommunityIcons
-                                    name="camera-switch"
-                                    style={{ color: "#fff", fontSize: 40 }}
-                                />
-                            </TouchableOpacity>
-                        </View>
-                    </Camera>
+                    <View style={styles.logoView}>
+                        <Text style={styles.logoText}>
+                            면허증 스캔
+                        </Text>
+                    </View>
+                    <View style={styles.bodyView}>
+                        <Camera style={{ flex: 1 }} type={this.state.cameraType} ref={ref => { this.camera = ref }}>
+                            <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-between", margin: 30 }}>
+                                <TouchableOpacity
+                                    style={{
+                                        alignSelf: 'flex-end',
+                                        alignItems: 'center',
+                                        backgroundColor: 'transparent',
+                                    }}
+                                    onPress={() => this.takePicture()}
+                                >
+                                    <FontAwesome
+                                        name="camera"
+                                        style={{ color: "#fff", fontSize: 40, marginLeft: "52%" }}
+                                    />
+                                </TouchableOpacity>
+                                
+                            </View>
+                        </Camera>
+                    </View>
+                    <View style={styles.alertView}>
+
+                    </View>
+                    <View style={styles.buttonView}>
+                    <TouchableOpacity style={styles.prevBtn}
+                        onPress={() => this.props.navigation.navigate('Signup')}
+                    >
+                        <Text style={styles.prevText}>이전</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.nextBtn}
+                        onPress={() => this.props.navigation.push('ScanConfirm')
+                        }>
+                        <Text style={styles.nextText}>다음</Text>
+                    </TouchableOpacity>
+                </View>
                 </View>
             );
         }
@@ -160,24 +154,27 @@ const styles = StyleSheet.create({
         fontSize: 30
     },
     bodyView: {
-        flex: 3,
+        flex: 2.5,
     },
-    btnView: {
+    alertView: {
+        flex:0.5
+    },
+    buttonView: {
         flex: 1,
-        backgroundColor: 'white',
         flexDirection: 'row',
-        justifyContent: "center"
+        justifyContent: "center",
     },
     prevBtn: {
         alignItems: "center",
         justifyContent: "center",
-        borderWidth: 2,
+        borderWidth: 1,
         borderColor: "pink",
         width: 120,
         height: '30%',
         backgroundColor: "pink",
         marginRight: 60,
-        borderRadius: 40
+        borderRadius: 40,
+        borderColor: "pink"
     },
     prevText: {
         fontSize: 20,
@@ -186,16 +183,17 @@ const styles = StyleSheet.create({
     nextBtn: {
         alignItems: "center",
         justifyContent: "center",
-        borderWidth: 2,
+        borderWidth: 1,
         borderColor: "pink",
         width: 120,
         height: '30%',
         backgroundColor: "pink",
         borderRadius: 40,
+        borderColor: "pink"
     },
     nextText: {
         fontSize: 20,
-        color: 'white'
+        color: 'white',
     },
     camera: {
         flex: 1,

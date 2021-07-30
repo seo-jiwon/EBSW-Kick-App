@@ -10,6 +10,7 @@ import PwChange from './layouts/Content/Menu/PwChange.js';
 import AliasChange from './layouts/Content/Menu/AliasChange.js';
 import PhoneChange from './layouts/Content/Menu/PhoneChange';
 import EmailChange from './layouts/Content/Menu/EmailChange';
+import ScanConfirm from './layouts/Content/Signup/ScanConfirmScreen';
 
 import { Camera } from 'expo-camera';
 import React, { useState, useEffect } from 'react';
@@ -98,6 +99,12 @@ export default function App() {
             title: '이메일 변경', headerBackTitleVisible: false,
             headerStyle: { backgroundColor: "#f9e6e9" }
           }}>{props => <EmailChange {...props} extraData={"EMAILCHANGE"} />}
+          </Stack.Screen>
+
+          <Stack.Screen name="ScanConfirm" options={{
+            title: '', headerBackTitleVisible: false,
+            headerStyle: { backgroundColor: "#f9e6e9" }
+          }}>{props => <ScanConfirm {...props} extraData={"ScanConfirm"} />}
           </Stack.Screen>
 
         </Stack.Navigator>
