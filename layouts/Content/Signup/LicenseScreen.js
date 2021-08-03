@@ -47,7 +47,7 @@ export default class LicenseScan extends React.Component {
     getPermissionAsync = async () => {
         // Camera roll Permission 
         if (Platform.OS === 'ios') {
-            const { status } = await Camera.requestPermissionsAsync();
+            const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
             if (status !== 'granted') {
                 alert('Sorry, we need camera roll permissions to make this work!');
             }
@@ -93,7 +93,7 @@ export default class LicenseScan extends React.Component {
                                         style={{ color: "#fff", fontSize: 40, marginLeft: "52%" }}
                                     />
                                 </TouchableOpacity>
-                                
+
                             </View>
                         </Camera>
                     </View>
@@ -101,17 +101,17 @@ export default class LicenseScan extends React.Component {
 
                     </View>
                     <View style={styles.buttonView}>
-                    <TouchableOpacity style={styles.prevBtn}
-                        onPress={() => this.props.navigation.navigate('Signup')}
-                    >
-                        <Text style={styles.prevText}>이전</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.nextBtn}
-                        onPress={() => this.props.navigation.push('ScanConfirm')
-                        }>
-                        <Text style={styles.nextText}>다음</Text>
-                    </TouchableOpacity>
-                </View>
+                        <TouchableOpacity style={styles.prevBtn}
+                            onPress={() => this.props.navigation.navigate('Signup')}
+                        >
+                            <Text style={styles.prevText}>이전</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.nextBtn}
+                            onPress={() => this.props.navigation.push('ScanConfirm')
+                            }>
+                            <Text style={styles.nextText}>다음</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             );
         }
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
         flex: 2.5,
     },
     alertView: {
-        flex:0.5
+        flex: 0.5
     },
     buttonView: {
         flex: 1,

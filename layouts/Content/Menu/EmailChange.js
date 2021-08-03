@@ -18,11 +18,6 @@ class EmailChange extends Component {
                         <TextInput style={styles.newEmailTextInput}
                             placeholder="이메일 입력"
                         >
-                            <TouchableOpacity>
-                                <Text>
-                                    인증번호 전송
-                            </Text>
-                            </TouchableOpacity>
                         </TextInput>
                         <TouchableOpacity style={styles.emailBtn}>
                             <Text style={styles.emailBtnText}>

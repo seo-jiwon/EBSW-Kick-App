@@ -11,6 +11,7 @@ import AliasChange from './layouts/Content/Menu/AliasChange.js';
 import PhoneChange from './layouts/Content/Menu/PhoneChange';
 import EmailChange from './layouts/Content/Menu/EmailChange';
 import ScanConfirm from './layouts/Content/Signup/ScanConfirmScreen';
+import CardInformation from './layouts/Content/Menu/CardInformation';
 
 import { Camera } from 'expo-camera';
 import React, { useState, useEffect } from 'react';
@@ -105,6 +106,12 @@ export default function App() {
             title: '', headerBackTitleVisible: false,
             headerStyle: { backgroundColor: "#f9e6e9" }
           }}>{props => <ScanConfirm {...props} extraData={"ScanConfirm"} />}
+          </Stack.Screen>
+
+          <Stack.Screen name="CardInformation" options={{
+            title: '카드 정보', headerBackTitleVisible: false,
+            headerStyle: { backgroundColor: "#f9e6e9" }
+          }}>{props => <CardInformation {...props} extraData={"CardInformation"} />}
           </Stack.Screen>
 
         </Stack.Navigator>
