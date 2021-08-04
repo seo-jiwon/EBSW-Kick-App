@@ -15,6 +15,8 @@ import CardInformation from './layouts/Content/Menu/CardInformation';
 import CardAdd from './layouts/Content/Menu/CardAddScreen';
 import ShareMain from './layouts/Content/ShareService/ShareMain';
 import ShareStart from './layouts/Content/ShareService/ShareStart';
+import ShareRiding from './layouts/Content/ShareService/ShareRiding';
+
 
 import { Camera } from 'expo-camera';
 import React, { useState, useEffect } from 'react';
@@ -133,6 +135,12 @@ export default function App() {
             title: '쉐어링 서비스', headerBackTitleVisible: false,
             headerStyle: { backgroundColor: "#f9e6e9" }
           }}>{props => <ShareStart {...props} extraData={"ShareStart"} />}
+          </Stack.Screen>
+          
+          <Stack.Screen name="ShareRiding" options={{
+            title: '탑승정보', headerBackTitleVisible: false,
+            headerStyle: { backgroundColor: "#f9e6e9" }
+          }}>{props => <ShareRiding {...props} extraData={"ShareRiding"} />}
           </Stack.Screen>
 
         </Stack.Navigator>

@@ -33,7 +33,7 @@ class Initial extends Component{
                         </TouchableOpacity>
                     </View>
                     <TouchableOpacity 
-                        onPress={() => this.props.navigation.push('ShareMain')}
+                        onPress={() => this.props.navigation.push('ShareRiding')}
                     >
                         <Text>내정보</Text>
                     </TouchableOpacity>
