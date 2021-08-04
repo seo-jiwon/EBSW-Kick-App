@@ -37,7 +37,7 @@ class CardInformation extends Component{
                 
                 <View style={styles.addView}>
                     <TouchableOpacity style={styles.addCard}
-                        onPress={() => this.props.navigation.push('CardInformation')}
+                        onPress={() => this.props.navigation.push('CardAdd')}
                     >
                         <Text style={styles.addText}>
                                 + 카드 추가하기
@@ -76,8 +76,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: '30%',
-        marginBottom: '10%'
+        height: '38%',
+        marginBottom: '5%'
     },
     card1Text: {
         fontSize: 17,
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: '30%',
+        height: '38%',
         backgroundColor: 'pink',
         borderColor: 'white'
     },
@@ -104,8 +104,8 @@ const styles = StyleSheet.create({
         color: 'black'
     },
     addView: {
-        flex: 2,
-        alignItems: 'center'
+        flex: 3,
+        alignItems: 'center',
     },
     addCard: {
         borderWidth: 1,
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     btnView: {
         flex: 1,
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
     },
     confirmBtn: {
         borderWidth: 1,
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
         backgroundColor: "pink",
         borderColor: "pink",
         width: "80%",
-        height: '30%',
+        height: '40%',
         alignItems: "center",
         justifyContent: "center"
     },

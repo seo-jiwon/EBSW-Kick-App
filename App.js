@@ -12,6 +12,9 @@ import PhoneChange from './layouts/Content/Menu/PhoneChange';
 import EmailChange from './layouts/Content/Menu/EmailChange';
 import ScanConfirm from './layouts/Content/Signup/ScanConfirmScreen';
 import CardInformation from './layouts/Content/Menu/CardInformation';
+import CardAdd from './layouts/Content/Menu/CardAddScreen';
+import ShareMain from './layouts/Content/ShareService/ShareMain';
+import ShareStart from './layouts/Content/ShareService/ShareStart';
 
 import { Camera } from 'expo-camera';
 import React, { useState, useEffect } from 'react';
@@ -112,6 +115,24 @@ export default function App() {
             title: '카드 정보', headerBackTitleVisible: false,
             headerStyle: { backgroundColor: "#f9e6e9" }
           }}>{props => <CardInformation {...props} extraData={"CardInformation"} />}
+          </Stack.Screen>
+
+          <Stack.Screen name="CardAdd" options={{
+            title: '카드 추가', headerBackTitleVisible: false,
+            headerStyle: { backgroundColor: "#f9e6e9" }
+          }}>{props => <CardAdd {...props} extraData={"CardAdd"} />}
+          </Stack.Screen>
+
+          <Stack.Screen name="ShareMain" options={{
+            title: '쉐어링 서비스', headerBackTitleVisible: false,
+            headerStyle: { backgroundColor: "#f9e6e9" }
+          }}>{props => <ShareMain {...props} extraData={"ShareMain"} />}
+          </Stack.Screen>
+
+          <Stack.Screen name="ShareStart" options={{
+            title: '쉐어링 서비스', headerBackTitleVisible: false,
+            headerStyle: { backgroundColor: "#f9e6e9" }
+          }}>{props => <ShareStart {...props} extraData={"ShareStart"} />}
           </Stack.Screen>
 
         </Stack.Navigator>

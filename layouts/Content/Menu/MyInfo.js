@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     bottommView: {
         flex: 1,
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
     },
     titleName: {
         fontSize: 16,
