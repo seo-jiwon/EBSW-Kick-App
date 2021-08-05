@@ -16,6 +16,7 @@ import CardAdd from './layouts/Content/Menu/CardAddScreen';
 import ShareMain from './layouts/Content/ShareService/ShareMain';
 import ShareStart from './layouts/Content/ShareService/ShareStart';
 import ShareRiding from './layouts/Content/ShareService/ShareRiding';
+import ShareRunInfo from './layouts/Content/ShareService/ShareRunInfo';
 import RunEnd from './layouts/Content/BasicService/RunEnd';
 import RunInfo from './layouts/Content/BasicService/RunInfo';
 import RidingInfo from './layouts/Content/BasicService/RidingInfo';
@@ -143,6 +144,12 @@ export default function App() {
             title: '탑승 정보', headerBackTitleVisible: false,
             headerStyle: { backgroundColor: "#f9e6e9" }
           }}>{props => <ShareRiding {...props} extraData={"SHARERIDING"} />}
+          </Stack.Screen>
+
+          <Stack.Screen name="ShareRunInfo" options={{
+            title: '운행 정보', headerBackTitleVisible: false,
+            headerStyle: { backgroundColor: "#f9e6e9" }
+          }}>{props => <ShareRunInfo {...props} extraData={"SHARERUNINFO"} />}
           </Stack.Screen>
 
           <Stack.Screen name="RunInfo" options={{
