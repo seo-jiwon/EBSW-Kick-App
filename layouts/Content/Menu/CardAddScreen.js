@@ -10,7 +10,7 @@ class CardAdd extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.bodyView}>
-                    <Text>
+                    <Text style={styles.titleText}>
                         카드번호
                     </Text>
                     <TextInput style={styles.cardNumTextInput}
@@ -18,7 +18,7 @@ class CardAdd extends Component {
                     >
                     </TextInput>
                     <View style={styles.rowView}>
-                        <Text>
+                        <Text style={styles.titleText}>
                             유효기간
                     </Text>
                         <Text style={styles.pwText}>
@@ -37,7 +37,7 @@ class CardAdd extends Component {
                         </TextInput>
                     </View>
                     <View style={styles.birthView}>
-                        <Text>
+                        <Text style={styles.titleText}>
                             생년월일
                     </Text>
                         <TextInput style={styles.birthTextInput}
@@ -69,7 +69,6 @@ const styles = StyleSheet.create({
     },
     bodyView: {
         flex: 4,
-        backgroundColor: 'white',
     },
     btnView: {
         flex: 1,
@@ -94,10 +93,11 @@ const styles = StyleSheet.create({
     },
     pwTextInput: {
         borderBottomWidth: 1,
-        width: '40%',
+        width: '47%',
     },
     pwText: {
-        marginRight: '5%'
+        marginRight: '5%',
+        fontSize: 17
     },
     birthView: {
         paddingTop: '5%',
@@ -119,6 +119,9 @@ const styles = StyleSheet.create({
         fontSize: 23,
         color: "white"
     },
+    titleText: {
+        fontSize: 17
+    }
 })
 
 export default CardAdd;

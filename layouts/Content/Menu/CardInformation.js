@@ -69,15 +69,15 @@ const styles = StyleSheet.create({
         padding: 40
     },
     cardView: {
-        flex: 1,
+        flex: 1.5,
     },
     card1Style: {
         borderWidth: 1,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: '38%',
-        marginBottom: '5%'
+        height: '30%',
+        marginBottom: '10%',
     },
     card1Text: {
         fontSize: 17,
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: '38%',
+        height: '30%',
         backgroundColor: 'pink',
         borderColor: 'white'
     },
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
         color: 'black'
     },
     addView: {
-        flex: 3,
+        flex: 2.5,
         alignItems: 'center',
     },
     addCard: {
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         height: '12%',
         width: '50%',
-
+        backgroundColor: 'white',
     },
     addText: {
         fontSize: 17
