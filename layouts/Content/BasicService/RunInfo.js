@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 
-class ShareRiding extends Component {
+class RunInfo extends Component {
     constructor({ props }) {
         super(props);
     }
@@ -9,7 +9,7 @@ class ShareRiding extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <View style={styles.bodyView}>
+          <View style={styles.bodyView}>
                     <View style={styles.titleView}>
                         <Text style={styles.titleText}>
                             운행 구역
@@ -18,7 +18,13 @@ class ShareRiding extends Component {
                             일련 번호
                         </Text>
                         <Text style={styles.titleText}>
-                            탑승 시작
+                            탑승 시간
+                        </Text>
+                        <Text style={styles.titleText}>
+                            운행 시간
+                        </Text>
+                        <Text style={styles.titleText}>
+                            운행 요금
                         </Text>
                     </View>
                     <View style={styles.contentView}>
@@ -31,19 +37,23 @@ class ShareRiding extends Component {
                         <Text style={styles.startText}>
                             14:10
                         </Text>
+                        <Text style={styles.timeText}>
+                            15 (분)
+                        </Text>
+                        <Text style={styles.priceText}>
+                            2500 (원)
+                        </Text>
                     </View>
                 </View>
                 <View style={styles.alertView}>
                     <Text style={styles.alertText}>
-                    • 기본 요금 10분 - 800원 이후 1분당 200원 부과{"\n"}
-                    • 운행 시작 버튼을 클릭 시 키 박스의 OTP 번호가 {"\n"}팝업으로 30초마다
-                        갱신됩니다.
+                    • 운행 종료를 위해서는 안전모를 킥보드에 거치해야 합니다.
                     </Text>
                 </View>
                 <View style={styles.btnView}>
                     <TouchableOpacity style={styles.confirmBtn}>
                         <Text style={styles.confirmText}>
-                            운행 시작
+                            운행 종료
                         </Text>
                     </TouchableOpacity>
                 </View>
@@ -60,11 +70,11 @@ const styles = StyleSheet.create({
         padding: 40
     },
     bodyView: {
-        flex:1,
-        flexDirection: 'row'
+        flex:1.5,
+        flexDirection: 'row',
     },
     alertView: {
-        flex:3,
+        flex:2.5,
         paddingTop: '10%'
     },
     btnView: {
@@ -93,6 +103,14 @@ const styles = StyleSheet.create({
     },
     startText: {
         fontSize: 18,
+        marginBottom: '10%'
+    },
+    timeText: {
+        fontSize: 18,
+        marginBottom: '10%'
+    },
+    priceText: {
+        fontSize: 18,
     },
     alertText: {
         alignItems: 'center'
@@ -110,7 +128,8 @@ const styles = StyleSheet.create({
     confirmText: {
         fontSize: 23,
         color: "white"
-    }
+    },
+    
 })
 
-export default ShareRiding;
+export default RunInfo;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 
-class ShareRiding extends Component {
+class RidingInfo extends Component {
     constructor({ props }) {
         super(props);
     }
@@ -35,7 +35,7 @@ class ShareRiding extends Component {
                 </View>
                 <View style={styles.alertView}>
                     <Text style={styles.alertText}>
-                    • 기본 요금 10분 - 800원 이후 1분당 200원 부과{"\n"}
+                    • 기본 요금 10분 - 1000원 이후 1분당 200원 부과{"\n"}
                     • 운행 시작 버튼을 클릭 시 키 박스의 OTP 번호가 {"\n"}팝업으로 30초마다
                         갱신됩니다.
                     </Text>
@@ -113,4 +113,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default ShareRiding;
+export default RidingInfo;

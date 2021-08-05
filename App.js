@@ -16,7 +16,9 @@ import CardAdd from './layouts/Content/Menu/CardAddScreen';
 import ShareMain from './layouts/Content/ShareService/ShareMain';
 import ShareStart from './layouts/Content/ShareService/ShareStart';
 import ShareRiding from './layouts/Content/ShareService/ShareRiding';
-
+import RunEnd from './layouts/Content/BasicService/RunEnd';
+import RunInfo from './layouts/Content/BasicService/RunInfo';
+import RidingInfo from './layouts/Content/BasicService/RidingInfo';
 
 import { Camera } from 'expo-camera';
 import React, { useState, useEffect } from 'react';
@@ -110,37 +112,55 @@ export default function App() {
           <Stack.Screen name="ScanConfirm" options={{
             title: '', headerBackTitleVisible: false,
             headerStyle: { backgroundColor: "#f9e6e9" }
-          }}>{props => <ScanConfirm {...props} extraData={"ScanConfirm"} />}
+          }}>{props => <ScanConfirm {...props} extraData={"SCANCONFIRM"} />}
           </Stack.Screen>
 
           <Stack.Screen name="CardInformation" options={{
             title: '카드 정보', headerBackTitleVisible: false,
             headerStyle: { backgroundColor: "#f9e6e9" }
-          }}>{props => <CardInformation {...props} extraData={"CardInformation"} />}
+          }}>{props => <CardInformation {...props} extraData={"CARDINFORMATION"} />}
           </Stack.Screen>
 
           <Stack.Screen name="CardAdd" options={{
             title: '카드 추가', headerBackTitleVisible: false,
             headerStyle: { backgroundColor: "#f9e6e9" }
-          }}>{props => <CardAdd {...props} extraData={"CardAdd"} />}
+          }}>{props => <CardAdd {...props} extraData={"CARDADD"} />}
           </Stack.Screen>
 
           <Stack.Screen name="ShareMain" options={{
             title: '쉐어링 서비스', headerBackTitleVisible: false,
             headerStyle: { backgroundColor: "#f9e6e9" }
-          }}>{props => <ShareMain {...props} extraData={"ShareMain"} />}
+          }}>{props => <ShareMain {...props} extraData={"SHAREMAIN"} />}
           </Stack.Screen>
 
           <Stack.Screen name="ShareStart" options={{
             title: '쉐어링 서비스', headerBackTitleVisible: false,
             headerStyle: { backgroundColor: "#f9e6e9" }
-          }}>{props => <ShareStart {...props} extraData={"ShareStart"} />}
+          }}>{props => <ShareStart {...props} extraData={"SHARESTART"} />}
           </Stack.Screen>
           
           <Stack.Screen name="ShareRiding" options={{
-            title: '탑승정보', headerBackTitleVisible: false,
+            title: '탑승 정보', headerBackTitleVisible: false,
             headerStyle: { backgroundColor: "#f9e6e9" }
-          }}>{props => <ShareRiding {...props} extraData={"ShareRiding"} />}
+          }}>{props => <ShareRiding {...props} extraData={"SHARERIDING"} />}
+          </Stack.Screen>
+
+          <Stack.Screen name="RunInfo" options={{
+            title: '운행 정보', headerBackTitleVisible: false,
+            headerStyle: { backgroundColor: "#f9e6e9" }
+          }}>{props => <RunInfo {...props} extraData={"RUNINFO"} />}
+          </Stack.Screen>
+
+          <Stack.Screen name="RunEnd" options={{
+            title: '운행 종료', headerBackTitleVisible: false,
+            headerStyle: { backgroundColor: "#f9e6e9" }
+          }}>{props => <RunEnd {...props} extraData={"RUNEND"} />}
+          </Stack.Screen>
+
+          <Stack.Screen name="RidingInfo" options={{
+            title: '탑승 정보', headerBackTitleVisible: false,
+            headerStyle: { backgroundColor: "#f9e6e9" }
+          }}>{props => <RidingInfo {...props} extraData={"RIDINGINFO"} />}
           </Stack.Screen>
 
         </Stack.Navigator>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 
-class ShareRiding extends Component {
+class RunEnd extends Component {
     constructor({ props }) {
         super(props);
     }
@@ -9,7 +9,7 @@ class ShareRiding extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <View style={styles.bodyView}>
+          <View style={styles.bodyView}>
                     <View style={styles.titleView}>
                         <Text style={styles.titleText}>
                             운행 구역
@@ -18,7 +18,19 @@ class ShareRiding extends Component {
                             일련 번호
                         </Text>
                         <Text style={styles.titleText}>
-                            탑승 시작
+                            탑승 시간
+                        </Text>
+                        <Text style={styles.titleText}>
+                            종료 시간
+                        </Text>
+                        <Text style={styles.titleText}>
+                            운행 시간
+                        </Text>
+                        <Text style={styles.titleText}>
+                            운행 요금
+                        </Text>
+                        <Text style={styles.titleText}>
+                            결제 정보
                         </Text>
                     </View>
                     <View style={styles.contentView}>
@@ -31,19 +43,24 @@ class ShareRiding extends Component {
                         <Text style={styles.startText}>
                             14:10
                         </Text>
+                        <Text style={styles.endText}>
+                            14:40
+                        </Text>
+                        <Text style={styles.timeText}>
+                            30 (분)
+                        </Text>
+                        <Text style={styles.priceText}>
+                            7000 (원)
+                        </Text>
+                        <Text style={styles.cardText}>
+                            신한 0668
+                        </Text>
                     </View>
-                </View>
-                <View style={styles.alertView}>
-                    <Text style={styles.alertText}>
-                    • 기본 요금 10분 - 800원 이후 1분당 200원 부과{"\n"}
-                    • 운행 시작 버튼을 클릭 시 키 박스의 OTP 번호가 {"\n"}팝업으로 30초마다
-                        갱신됩니다.
-                    </Text>
                 </View>
                 <View style={styles.btnView}>
                     <TouchableOpacity style={styles.confirmBtn}>
                         <Text style={styles.confirmText}>
-                            운행 시작
+                            확인
                         </Text>
                     </TouchableOpacity>
                 </View>
@@ -60,12 +77,8 @@ const styles = StyleSheet.create({
         padding: 40
     },
     bodyView: {
-        flex:1,
-        flexDirection: 'row'
-    },
-    alertView: {
-        flex:3,
-        paddingTop: '10%'
+        flex: 4,
+        flexDirection: 'row',
     },
     btnView: {
         flex:1,
@@ -93,6 +106,23 @@ const styles = StyleSheet.create({
     },
     startText: {
         fontSize: 18,
+        marginBottom: '10%'
+    },
+    endText: {
+        fontSize: 18,
+        marginBottom: '10%'
+    },
+    timeText: {
+        fontSize: 18,
+        marginBottom: '10%'
+    },
+    priceText: {
+        fontSize: 18,
+        marginBottom: '10%'
+    },
+    cardText: {
+        fontSize: 18,
+        marginBottom: '10%'
     },
     alertText: {
         alignItems: 'center'
@@ -110,7 +140,8 @@ const styles = StyleSheet.create({
     confirmText: {
         fontSize: 23,
         color: "white"
-    }
+    },
+    
 })
 
-export default ShareRiding;
+export default RunEnd;
