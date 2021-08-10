@@ -40,7 +40,6 @@ class ShareRiding extends Component {
 
 
     render() {
-        const { modalVisible, setModalVisible } = this.state;
 
         return (
             <View style={styles.container}>

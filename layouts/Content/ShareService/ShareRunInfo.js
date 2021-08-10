@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, Modal, TouchableOpacity } from "react-native";
 
 class ShareRunInfo extends Component {
     constructor({ props }) {
         super(props);
+
+        this.state = {
+            show: false
+        };
     }
 
     render() {
@@ -51,11 +55,31 @@ class ShareRunInfo extends Component {
                     </Text>
                 </View>
                 <View style={styles.btnView}>
-                    <TouchableOpacity style={styles.confirmBtn}>
+                    <TouchableOpacity style={styles.confirmBtn}
+                    onPress={() => {this.setState({ show: true })}}
+                    >
                         <Text style={styles.confirmText}>
                             운행 종료
                         </Text>
                     </TouchableOpacity>
+                    <Modal
+                        offset={this.state.offset}
+                        visible={this.state.show}
+                        transparent={true}>
+                        
+                        <View style={styles.centeredView}>
+                            <View style={styles.modalView}>
+                                <Text style={styles.modalText}>0000</Text>
+
+                                <TouchableOpacity
+                                    style={{ ...styles.closeButton, backgroundColor: "pink" }}
+                                    onPress={() => this.setState({show: false})}
+                                    >
+                                    <Text style={styles.textStyle}>확인</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </Modal>
                 </View>
             </View>
         );
@@ -129,7 +153,44 @@ const styles = StyleSheet.create({
         fontSize: 23,
         color: "white"
     },
-    
+    centeredView: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    modalView: {
+        backgroundColor: 'white',
+        borderRadius: 20,
+        padding: 35,
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+        width: '70%',
+        marginBottom: '15%'
+    },
+    closeButton: {
+        backgroundColor: '#F194FF',
+        borderRadius: 20,
+        elevation: 2,
+        padding: 10,
+        width: '70%',
+    },
+    textStyle: {
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    modalText: {
+        marginBottom: 15,
+        textAlign: 'center',
+        fontSize: 25
+    },
 })
 
 export default ShareRunInfo;
