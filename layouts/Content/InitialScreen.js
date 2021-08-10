@@ -33,7 +33,7 @@ class Initial extends Component{
                         </TouchableOpacity>
                     </View>
                     <TouchableOpacity 
-                        onPress={() => this.props.navigation.push('ShareRunInfo')}
+                        onPress={() => this.props.navigation.push('ShareRiding')}
                     >
                         <Text>내정보</Text>
                     </TouchableOpacity>
@@ -46,7 +46,7 @@ class Initial extends Component{
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "flex-end"
+        justifyContent: "flex-end",
     },
     logoView: {
         flex:3,

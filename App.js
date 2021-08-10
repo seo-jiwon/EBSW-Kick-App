@@ -27,7 +27,6 @@ import React, { useState, useEffect } from 'react';
 
 
 //import React, {Component} from 'react';
-import FindScreen from "./router";
 import { View, StyleSheet, StatusBar, TabBarIOS } from 'react-native';
 
 import 'react-native-gesture-handler';
@@ -168,6 +167,12 @@ export default function App() {
             title: '탑승 정보', headerBackTitleVisible: false,
             headerStyle: { backgroundColor: "#f9e6e9" }
           }}>{props => <RidingInfo {...props} extraData={"RIDINGINFO"} />}
+          </Stack.Screen>
+
+          <Stack.Screen name="MainScreen" options={{
+            title: '가까운 킥보드 찾기', headerBackTitleVisible: false,
+            headerStyle: { backgroundColor: "#f9e6e9" }
+          }}>{props => <MainScreen {...props} extraData={"MAINSCREEN"} />}
           </Stack.Screen>
 
         </Stack.Navigator>

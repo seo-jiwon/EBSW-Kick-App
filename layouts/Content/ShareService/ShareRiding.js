@@ -1,12 +1,47 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, Image, TouchableOpacity, Modal, TouchableHighlight } from "react-native";
+
+/*
+
+<Modal
+                        animationType="slide"
+                        transparent={true}
+                        visible={true}
+                        open={this.state.open}
+                        modalDidClose={()=>this.setState({open:false})}
+                        onRequestClose={() => {
+                            Alert.alert('Modal has been closed.');
+                        }}>
+                        <View style={styles.centeredView}>
+                            <View style={styles.modalView}>
+                                <Text style={styles.modalText}>0000</Text>
+
+                                <TouchableHighlight
+                                    style={{ ...styles.openButton, backgroundColor: "pink" }}
+                                    onPress={() => this.setState({open: false})}
+                                    >
+                                    <Text style={styles.textStyle}>cancel</Text>
+                                </TouchableHighlight>
+                            </View>
+                        </View>
+                    </Modal>
+
+*/
 
 class ShareRiding extends Component {
     constructor({ props }) {
         super(props);
+
+        this.state = {
+            show: false
+        };
+
     }
 
+
     render() {
+        const { modalVisible, setModalVisible } = this.state;
+
         return (
             <View style={styles.container}>
                 <View style={styles.bodyView}>
@@ -35,17 +70,39 @@ class ShareRiding extends Component {
                 </View>
                 <View style={styles.alertView}>
                     <Text style={styles.alertText}>
-                    • 기본 요금 10분 - 800원 이후 1분당 200원 부과{"\n"}
-                    • 운행 시작 버튼을 클릭 시 키 박스의 OTP 번호가 {"\n"}팝업으로 30초마다
+                        • 기본 요금 10분 - 800원 이후 1분당 200원 부과{"\n"}
+                    • 운행 시작 버튼을 클릭 시 키 박스의 OTP 번호가 {"\n"}팝업으로 1분마다
                         갱신됩니다.
                     </Text>
+                    
+
                 </View>
                 <View style={styles.btnView}>
-                    <TouchableOpacity style={styles.confirmBtn}>
+                    <TouchableOpacity style={styles.confirmBtn}
+                        onPress={() => {this.setState({ show: true })}}
+                    >
                         <Text style={styles.confirmText}>
                             운행 시작
                         </Text>
                     </TouchableOpacity>
+                    <Modal
+                        offset={this.state.offset}
+                        visible={this.state.show}
+                        transparent={true}>
+                        
+                        <View style={styles.centeredView}>
+                            <View style={styles.modalView}>
+                                <Text style={styles.modalText}>0000</Text>
+
+                                <TouchableOpacity
+                                    style={{ ...styles.closeButton, backgroundColor: "pink" }}
+                                    onPress={() => this.setState({show: false})}
+                                    >
+                                    <Text style={styles.textStyle}>확인</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </Modal>
                 </View>
             </View>
         );
@@ -60,20 +117,20 @@ const styles = StyleSheet.create({
         padding: 40
     },
     bodyView: {
-        flex:1,
+        flex: 1,
         flexDirection: 'row'
     },
     alertView: {
-        flex:3,
+        flex: 3,
         paddingTop: '10%'
     },
     btnView: {
-        flex:1,
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
     },
     titleView: {
-        flex:1,
+        flex: 1,
     },
     contentView: {
         flex: 3,
@@ -110,7 +167,45 @@ const styles = StyleSheet.create({
     confirmText: {
         fontSize: 23,
         color: "white"
-    }
+    },
+    centeredView: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    modalView: {
+        backgroundColor: 'white',
+        borderRadius: 20,
+        padding: 35,
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+        width: '70%',
+        marginBottom: '15%'
+    },
+    closeButton: {
+        backgroundColor: '#F194FF',
+        borderRadius: 20,
+        elevation: 2,
+        padding: 10,
+        width: '70%',
+    },
+    textStyle: {
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    modalText: {
+        marginBottom: 15,
+        textAlign: 'center',
+        fontSize: 25
+    },
 })
 
 export default ShareRiding;
