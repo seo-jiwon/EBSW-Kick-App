@@ -9,7 +9,7 @@ class ShareStart extends Component {
         this.state = {
             open:  false,
             value: null,
-            items: [{ label: '대구대', value: 'daegu'},{ label: '영남대', value: 'yeongnam'}]
+            items: [{ label: '대구가톨릭대학교', value: 'one'},{ label: '영남대학교', value: 'two', selected: true}]
         }
         this.setValue = this.setValue.bind(this);
     }
@@ -33,7 +33,7 @@ class ShareStart extends Component {
       }
 
     render() {
-        const { open, value, items, setOpen, setValue, setItems } = this.state;
+        const { open, value, items, setValue, setOpen, setItems } = this.state;
         return (
             <View style={styles.container}>
                 <View style={styles.stopBtnView}>
@@ -63,17 +63,34 @@ class ShareStart extends Component {
                             </Text>
                         </View>
                         <View style={styles.dropView}>
-                            <DropDownPicker style={styles.placeDrop}
+                            <View style={styles.placeView}>
+                            <DropDownPicker style={styles.dropDownStyle}
                                 open={open}
                                 value={value}
-                                items={items}
+                                placeitems={items}
                                 setOpen={setOpen}
                                 setValue={setValue}
                                 setItems={setItems}
-                                multiple={true}
-                                min={0}
-                                max={2}
+                                onOpen={() => {this.setState({ open: true })}}
+                                onClose={() => this.setState({open: false})}
+                                placeholder='구역 선택'
                             />
+                            </View>
+                           
+                            <View style={styles.startDateView}>
+                            
+                            </View>
+
+                            <View style={styles.endDateView}>
+                           
+                            </View>
+                            <View style={styles.startTimeView}>
+                          
+                            </View>
+
+                            <View style={styles.endTimeView}>
+                        
+                            </View>
                         </View>
                     </View>
                     <View style={styles.alertView}>
@@ -143,6 +160,7 @@ const styles = StyleSheet.create({
     titleText: {
         fontSize: 18,
         marginBottom: '30%',
+        marginTop: '8%'
     },
     dropView: {
         flex: 3,
@@ -162,8 +180,31 @@ const styles = StyleSheet.create({
         fontSize: 23,
         color: "white"
     },
-    placeDrop: {
-        height: 30,
+    dropDownStyle: {
+        borderRadius: 0,
+    },
+    dateDropStyle: {
+        borderRadius: 0,
+        width: '20%'
+    },
+    placeView: {
+        flex:1
+    },
+    startDateView: {
+        flex:1,
+        flexDirection: 'row',
+        //backgroundColor: 'grey'
+    },
+    endDateView: {
+        flex:1,
+        flexDirection: 'row'
+    },
+    startTimeView: {
+        flex:1,
+        backgroundColor: 'grey'
+    },
+    endTimeView: {
+        flex:1
     }
 })
 

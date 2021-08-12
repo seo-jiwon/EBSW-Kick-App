@@ -20,6 +20,7 @@ import ShareRunInfo from './layouts/Content/ShareService/ShareRunInfo';
 import RunEnd from './layouts/Content/BasicService/RunEnd';
 import RunInfo from './layouts/Content/BasicService/RunInfo';
 import RidingInfo from './layouts/Content/BasicService/RidingInfo';
+import ShareHistory from './layouts/Content/ShareService/ShareHistory';
 
 import { Camera } from 'expo-camera';
 import React, { useState, useEffect } from 'react';
@@ -149,6 +150,12 @@ export default function App() {
             title: '운행 정보', headerBackTitleVisible: false,
             headerStyle: { backgroundColor: "#f9e6e9" }
           }}>{props => <ShareRunInfo {...props} extraData={"SHARERUNINFO"} />}
+          </Stack.Screen>
+
+          <Stack.Screen name="ShareHistory" options={{
+            title: '쉐어링 서비스 내역', headerBackTitleVisible: false,
+            headerStyle: { backgroundColor: "#f9e6e9" }
+          }}>{props => <ShareHistory {...props} extraData={"SHARERHISTORY"} />}
           </Stack.Screen>
 
           <Stack.Screen name="RunInfo" options={{

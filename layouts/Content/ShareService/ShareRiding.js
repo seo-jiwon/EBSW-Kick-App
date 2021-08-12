@@ -1,32 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity, Modal, TouchableHighlight } from "react-native";
-
-/*
-
-<Modal
-                        animationType="slide"
-                        transparent={true}
-                        visible={true}
-                        open={this.state.open}
-                        modalDidClose={()=>this.setState({open:false})}
-                        onRequestClose={() => {
-                            Alert.alert('Modal has been closed.');
-                        }}>
-                        <View style={styles.centeredView}>
-                            <View style={styles.modalView}>
-                                <Text style={styles.modalText}>0000</Text>
-
-                                <TouchableHighlight
-                                    style={{ ...styles.openButton, backgroundColor: "pink" }}
-                                    onPress={() => this.setState({open: false})}
-                                    >
-                                    <Text style={styles.textStyle}>cancel</Text>
-                                </TouchableHighlight>
-                            </View>
-                        </View>
-                    </Modal>
-
-*/
+import { StyleSheet, View, Text, TouchableOpacity, Modal } from "react-native";
 
 class ShareRiding extends Component {
     constructor({ props }) {
