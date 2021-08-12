@@ -36,8 +36,7 @@ class RidingInfo extends Component {
                 <View style={styles.alertView}>
                     <Text style={styles.alertText}>
                     • 기본 요금 10분 - 1000원 이후 1분당 200원 부과{"\n"}
-                    • 운행 시작 버튼을 클릭 시 키 박스의 OTP 번호가 {"\n"}팝업으로 30초마다
-                        갱신됩니다.
+                    • 운행 시작 버튼을 클릭 후 안전모 착용 시 운행이 가능합니다.
                     </Text>
                 </View>
                 <View style={styles.btnView}>
