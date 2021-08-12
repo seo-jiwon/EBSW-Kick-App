@@ -17,7 +17,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mainmap.mainmap",
+      "buildNumber": "1.0.0",
+        "config": 
+        { "googlemapsApiKey": "AIzaSyBxAiYGyZwh5Cfg-N7eT291TEzz-I19Qh8" }
+
     },
     "android": {
       "adaptiveIcon": {

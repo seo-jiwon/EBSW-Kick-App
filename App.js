@@ -22,6 +22,7 @@ import RunInfo from './layouts/Content/BasicService/RunInfo';
 import RidingInfo from './layouts/Content/BasicService/RidingInfo';
 import ShareHistory from './layouts/Content/ShareService/ShareHistory';
 import ShareRegister from './layouts/Content/ShareService/ShareRegister';
+import MainScreen from './layouts/Content/Main/MainScreen';
 
 import { Camera } from 'expo-camera';
 import React, { useState, useEffect } from 'react';
