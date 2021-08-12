@@ -1,42 +1,26 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Modal } from "react-native";
 import {MaterialIcons} from '@expo/vector-icons';
+import DropDownPicker from 'react-native-dropdown-picker';
 
-function filter() {
-    return(
-        <View style={styles.filterStyle}>
-            <View style={styles.startDateView}>
-                <Text style={styles.filterTitleText}>
-                    시작 날짜
-                                </Text>
-            </View>
-            <View style={styles.endDateView}>
-                <Text style={styles.filterTitleText}>
-                    끝 날짜
-                                </Text>
-            </View>
-            <View style={styles.certiBtnView}>
-                <TouchableOpacity style={styles.certiBtnStyle}>
-                    <Text style={styles.certiBtnText}>
-                        적용하기
-                                    </Text>
-                </TouchableOpacity>
-            </View>
-        </View>
-    );
-}
 
 class ShareHistory extends Component {
     constructor({ props }) {
         super(props);
 
         this.state = {
-            show: false,
+            startYearOpen: false,
+            startMonthOpen: false,
+            startDayOpen: false,
+            endYearOpen: false,
+            endMonthOpen: false,
+            endDayOpen: false,
         };
 
     }
 
     render() {
+        const{startYearOpen, startMonthOpen, startDayOpen, endYearOpen, endMonthOpen, endDayOpen} = this.state;
         return (
             <View style={styles.container}>
                 <View style={styles.filterBtnView}>
@@ -89,14 +73,103 @@ class ShareHistory extends Component {
                     >
                         <View style={styles.filterStyle}>
                             <View style={styles.startDateView}>
-                                <Text style={styles.filterTitleText}>
-                                    시작 날짜
-                                </Text>
+                                <View style={styles.dropTitleView}>
+                                    <Text style={styles.filterTitleText}>
+                                        시작 날짜
+                                    </Text>
+                                </View>
+                                <View style={styles.startDropView}>
+                                <DropDownPicker
+                                    containerStyle={{ width: '35%', }}
+                                    placeholder='년도'
+                                    items={[
+                                        { label: '2021', value: '1' },
+                                        { label: '2022', value: '2', selected: true }
+                                    ]}
+                                    open={startYearOpen}
+                                    onOpen={() => { this.setState({ startYearOpen: true }) }}
+                                    onClose={() => this.setState({ startYearOpen: false })}
+                                    onChangeItem={item => {
+                                        this.setState({
+                                            selected: item.value
+                                        });
+                                    }}
+                                />
+                                <DropDownPicker
+                                    containerStyle={{ width: '25%', }}
+                                    placeholder='월'
+                                    items={[
+                                        { label: '08', value: '1' },
+                                        { label: '09', value: '2' },
+                                        { label: '10', value: '3' }
+                                    ]}
+                                    open={startMonthOpen}
+                                    onOpen={() => { this.setState({ startMonthOpen: true }) }}
+                                    onClose={() => this.setState({ startMonthOpen: false })}
+                                />
+                                <DropDownPicker
+                                    containerStyle={{ width: '25%', }}
+                                    placeholder='일'
+                                    items={[
+                                        { label: '08', value: '1' },
+                                        { label: '09', value: '2' },
+                                        { label: '10', value: '3' }
+                                    ]}
+                                    open={startDayOpen}
+                                    onOpen={() => { this.setState({ startDayOpen: true }) }}
+                                    onClose={() => this.setState({ startDayOpen: false })}
+                                />
+                                </View>
                             </View>
                             <View style={styles.endDateView}>
-                                <Text style={styles.filterTitleText}>
-                                    끝 날짜
-                                </Text>
+                                <View style={styles.dropTitleView}>
+                                    <Text style={styles.filterTitleText}>
+                                        끝 날짜
+                                    </Text>
+                                </View>
+                                <View style={styles.endDropView}>
+                                <DropDownPicker
+                                    containerStyle={{ width: '35%', }}
+                                    placeholder='년도'
+                                    items={[
+                                        { label: '2021', value: '1' },
+                                        { label: '2022', value: '2', selected: true }
+                                    ]}
+                                    open={endYearOpen}
+                                    onOpen={() => { this.setState({ endYearOpen: true }) }}
+                                    onClose={() => this.setState({ endYearOpen: false })}
+                                    onChangeItem={item => {
+                                        this.setState({
+                                            selected: item.value
+                                        });
+                                    }}
+                                />
+                                <DropDownPicker
+                                    containerStyle={{ width: '25%', }}
+                                    placeholder='월'
+                                    items={[
+                                        { label: '08', value: '1' },
+                                        { label: '09', value: '2' },
+                                        { label: '10', value: '3' }
+                                    ]}
+                                    open={endMonthOpen}
+                                    onOpen={() => { this.setState({ endMonthOpen: true }) }}
+                                    onClose={() => this.setState({ endMonthOpen: false })}
+                                />
+                                <DropDownPicker
+                                    containerStyle={{ width: '25%', }}
+                                    placeholder='일'
+                                    items={[
+                                        { label: '08', value: '1' },
+                                        { label: '09', value: '2' },
+                                        { label: '10', value: '3' }
+                                    ]}
+                                    open={endDayOpen}
+                                    onOpen={() => { this.setState({ endDayOpen: true }) }}
+                                    onClose={() => this.setState({ endDayOpen: false })}
+                                />
+                                </View>
+                                
                             </View>
                             <View style={styles.certiBtnView}>
                                 <TouchableOpacity style={styles.certiBtnStyle}>
@@ -198,15 +271,32 @@ const styles = StyleSheet.create({
     priceText: {
         fontSize: 17
     },
+    dropTitleView: {
+        flex: 1,
+    },
     startDateView: {
         flex: 2,
         borderBottomWidth: 1,
-        borderColor: 'grey'
+        borderColor: 'grey',
+        zIndex: 10
+    },
+    startDropView: {
+        flex: 3,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     endDateView: {
         flex:2,
         borderBottomWidth: 1,
-        borderColor: 'grey'
+        borderColor: 'grey',
+        zIndex: 5
+    },
+    endDropView: {
+        flex:3,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     certiBtnView:{
         flex:1
