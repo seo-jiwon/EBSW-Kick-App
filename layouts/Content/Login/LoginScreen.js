@@ -2,20 +2,50 @@ import React, {Component} from "react";
 import { StyleSheet, View, Text, TextInput, Button, Touchable} from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-class Login extends Component{
-    constructor(props) {
-        super(props);
-        this.state = {viewText : ''};
-    }
+// class Login extends Component{
+//     constructor(props) {
+//         super(props);
+//         this.state = {viewText : ''};
+//     }
 
-    componentDidMount() {
-        this.setState({
-            viewText: ''
-        });
-    }
+//     componentDidMount() {
+//         this.setState({
+//             viewText: ''
+//         });
+//     }
 
-    render() {
-        return (
+//     render() {
+//         return (
+//             <View style={styles.container}>
+//                 <View style={styles.logoGradient} >
+//                     <View style={styles.headerView}>
+//                         <Text style={styles.headerText}>로그인</Text>
+//                     </View>
+//                     <View style={styles.bodyContainer}>
+//                         <TextInput style={styles.idInput}
+//                             placeholder="아이디"
+//                         />
+//                         <TextInput style={styles.pwInput}
+//                             placeholder="비밀번호"
+//                         />
+//                         <TouchableOpacity style={styles.findStyle}
+//                             onPress={() => this.props.navigation.push('IdFind')}
+//                         >
+//                             <Text style={styles.findText}>아이디/비밀번호 찾기</Text>
+//                         </TouchableOpacity>
+//                         <TouchableOpacity style={styles.loginBtn}
+//                         onPress={() => this.props.navigation.popToTop('MainScreen')}>
+//                             <Text style={styles.loginText}>로그인</Text>
+//                         </TouchableOpacity>
+//                     </View>
+//                 </View>
+//             </View>
+//         );
+//     }
+// }
+
+function Login({ navigation }) {
+    return (
             <View style={styles.container}>
                 <View style={styles.logoGradient} >
                     <View style={styles.headerView}>
@@ -29,20 +59,23 @@ class Login extends Component{
                             placeholder="비밀번호"
                         />
                         <TouchableOpacity style={styles.findStyle}
-                            onPress={() => this.props.navigation.push('IdFind')}
+                            onPress={() => navigation.navigate('IdFind')}
                         >
                             <Text style={styles.findText}>아이디/비밀번호 찾기</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.loginBtn}>
+                        <TouchableOpacity style={styles.loginBtn}
+                        onPress={() => navigation.navigate('MainScreen')}>
                             <Text style={styles.loginText}>로그인</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.loginBtn}
+                        onPress={() => navigation.navigate('Signup')}>
+                            <Text style={styles.loginText}>회원가입</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
             </View>
-        );
-    }
+    );
 }
-
 
 const styles = StyleSheet.create({
     container: {

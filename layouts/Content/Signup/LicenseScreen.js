@@ -102,12 +102,12 @@ export default class LicenseScan extends React.Component {
                     </View>
                     <View style={styles.buttonView}>
                         <TouchableOpacity style={styles.prevBtn}
-                            onPress={() => this.props.navigation.navigate('Signup')}
+                            onPress={() => navigation.navigate('PwSign')}
                         >
                             <Text style={styles.prevText}>이전</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.nextBtn}
-                            onPress={() => this.props.navigation.push('ScanConfirm')
+                            onPress={() => navigation.navigate('ScanConfirm')
                             }>
                             <Text style={styles.nextText}>다음</Text>
                         </TouchableOpacity>
@@ -117,26 +117,6 @@ export default class LicenseScan extends React.Component {
         }
     }
 }
-
-/*
-<View style={styles.container}>
-                <View style={styles.logoView}>
-                    <Text style={styles.logoText}>면허증 스캔</Text>
-                </View>
-                <View style={styles.bodyView}>
-                </View>
-                <View style={styles.btnView}>
-                    <TouchableOpacity style={styles.prevBtn}
-                        onPress={() => this.props.navigation.navigate('Signup')}
-                    >
-                        <Text style={styles.prevText}>이전</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.nextBtn}>
-                        <Text style={styles.nextText}>다음</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
-            */
 
 const styles = StyleSheet.create({
     container: {

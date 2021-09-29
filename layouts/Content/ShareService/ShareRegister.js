@@ -4,8 +4,13 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import { ceil } from "react-native-reanimated";
 
 class ShareRegister extends Component {
+
     constructor({ props }) {
         super(props);
+
+        const handleSubmit = () => {
+            
+        }
 
         this.state = {
             yearOpen:  false,

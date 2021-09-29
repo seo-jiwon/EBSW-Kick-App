@@ -89,11 +89,6 @@ class ShareHistory extends Component {
                                     open={startYearOpen}
                                     onOpen={() => { this.setState({ startYearOpen: true }) }}
                                     onClose={() => this.setState({ startYearOpen: false })}
-                                    onChangeItem={item => {
-                                        this.setState({
-                                            selected: item.value
-                                        });
-                                    }}
                                 />
                                 <DropDownPicker
                                     containerStyle={{ width: '25%', }}
@@ -113,7 +108,7 @@ class ShareHistory extends Component {
                                     items={[
                                         { label: '08', value: '1' },
                                         { label: '09', value: '2' },
-                                        { label: '10', value: '3' }
+                                        { label: '10', value: '3' } 
                                     ]}
                                     open={startDayOpen}
                                     onOpen={() => { this.setState({ startDayOpen: true }) }}

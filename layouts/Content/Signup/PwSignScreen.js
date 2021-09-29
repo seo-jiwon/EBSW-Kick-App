@@ -2,35 +2,28 @@ import React, { Component } from "react";
 import { StyleSheet, View, Text, TextInput } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-function Signup({ navigation }) {
+function PwSign({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.logoView}>
-                <Text style={styles.logoText}>회원가입</Text>
+                <Text style={styles.logoText}>비밀번호 입력</Text>
             </View>
             <View style={styles.bodyView}>
-                <TextInput style={styles.nameInput}
-                    placeholder='이름'
-                />
-                <TextInput style={styles.aliasInput}
-                    placeholder='닉네임'
-                />
-                <TextInput style={styles.birthInput}
-                    placeholder='생년월일'
-                />
-                <TextInput style={styles.phoneInput}
-                    placeholder='전화번호'
-                />
-
+                <View style={styles.pwView}>
+                    <TextInput style={styles.pwInput}
+                        placeholder='비밀번호'
+                    >
+                    </TextInput>
+                </View>
             </View>
             <View style={styles.buttonView}>
                 <TouchableOpacity style={styles.prevBtn}
-                    onPress={() => navigation.navigate('Initial')}
+                    onPress={() => navigation.navigate('EmailSign')}
                 >
                     <Text style={styles.prevText}>이전</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.nextBtn}
-                    onPress={() => navigation.navigate('EmailSign')
+                    onPress={() => navigation.navigate('LicenseScan')
                     }>
                     <Text style={styles.nextText}>다음</Text>
                 </TouchableOpacity>
@@ -38,6 +31,7 @@ function Signup({ navigation }) {
         </View>
     );
 }
+
 
 const styles = StyleSheet.create({
     container: {
@@ -58,7 +52,11 @@ const styles = StyleSheet.create({
         //backgroundColor: 'white',
         paddingHorizontal: 40
     },
-    nameInput: {
+    pwView: {
+        flexDirection: "row",
+        justifyContent: "space-between"
+    },
+    pwInput: {
         borderWidth: 1,
         borderBottomWidth: 1,
         borderTopWidth: 0,
@@ -67,38 +65,9 @@ const styles = StyleSheet.create({
         height: 35,
         textAlign: "left",
         marginBottom: 20,
+        width: '100%'
     },
-    aliasInput: {
-        borderWidth: 1,
-        borderBottomWidth: 1,
-        borderTopWidth: 0,
-        borderLeftWidth: 0,
-        borderRightWidth: 0,
-        height: 35,
-        textAlign: "left",
-        marginBottom: 20
-    },
-    birthInput: {
-        borderWidth: 1,
-        borderBottomWidth: 1,
-        borderTopWidth: 0,
-        borderLeftWidth: 0,
-        borderRightWidth: 0,
-        height: 35,
-        textAlign: "left",
-        marginBottom: 20
-    },
-    phoneInput: {
-        borderWidth: 1,
-        borderBottomWidth: 1,
-        borderTopWidth: 0,
-        borderLeftWidth: 0,
-        borderRightWidth: 0,
-        height: 35,
-        textAlign: "left",
-        marginBottom: 20
-    },
-   
+    
     buttonView: {
         flex: 1,
         flexDirection: 'row',
@@ -139,4 +108,4 @@ const styles = StyleSheet.create({
 
 
 
-export default Signup;
+export default PwSign;

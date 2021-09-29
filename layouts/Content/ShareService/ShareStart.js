@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import DropDownPicker from 'react-native-dropdown-picker';
+
 
 class ShareStart extends Component {
     constructor({ props }) {
@@ -254,10 +255,13 @@ class ShareStart extends Component {
                         </View>
                     </View>
                     <View style={styles.alertView}>
-                        <Text>
-                            • 쉐어링 서비스를 시작할 구역을 정확히 선택해주세요.{"\n"}
-                        • 충전할 때에는 상단의 일시정지 버튼을 눌러주세요.
-                        </Text>
+                        <View style={styles.alertTextView}>
+                            <Text>
+                                • 쉐어링 서비스를 시작할 구역을 정확히 선택해주세요.{"\n"}
+                            • 충전할 때에는 상단의 일시정지 버튼을 눌러주세요.
+                            </Text>
+
+                        </View>
                     </View>
                     <View style={styles.btnView}>
                         <TouchableOpacity style={styles.confirmBtn}>
@@ -291,9 +295,14 @@ const styles = StyleSheet.create({
     contentView: {
         flex: 2,
         flexDirection: 'row',
+        backgroundColor: 'grey'
     },
     alertView: {
         flex: 1.7,
+        justifyContent: 'center',
+    },
+    alertTextView: {
+        flex: 1,
         justifyContent: 'center'
     },
     btnView: {

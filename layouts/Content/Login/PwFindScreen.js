@@ -9,7 +9,7 @@ class PwFindScreen extends Component {
       <View style={styles.container}>
         <View style={styles.tabHeader}>
           <TouchableOpacity style={styles.idLogoBtn}
-            onPress={() => this.props.navigation.navigate('IdFind')}
+            onPress={() => navigation.navigate('IdFind')}
           >
             <Text style={styles.idLogoText}>아이디 찾기</Text>
           </TouchableOpacity>

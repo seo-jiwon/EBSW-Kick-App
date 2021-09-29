@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 
+/*
 class Initial extends Component{
     constructor({props}) {
         super(props);
@@ -33,7 +34,7 @@ class Initial extends Component{
                         </TouchableOpacity>
                     </View>
                     <TouchableOpacity 
-                        onPress={() => this.props.navigation.push('MainScreen')}
+                        onPress={() => this.props.navigation.navigate('MainScreen')}
                     >
                         <Text>내정보</Text>
                     </TouchableOpacity>
@@ -41,6 +42,42 @@ class Initial extends Component{
             </View>
         );
     }
+}
+*/
+
+function Initial({ navigation }) {
+    return (
+        <View style={styles.container}>
+                <LinearGradient
+                    colors={['#fdf7d2', '#fbdfe6']}
+                    style={styles.logoGradient}
+                >
+                    <View style={styles.logoView}>
+                        <Image
+                            style={{ height: '100%', width: '100%', resizeMode: 'cover' }}
+                            source={require('./chip.png')} />
+                    </View>
+
+                    <View style={styles.signView}>
+                        <TouchableOpacity style={styles.signinBtn}
+                            onPress={() => navigation.push('Login')}
+                        >
+                            <Text style={styles.signinText}>로그인</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.signupBtn}
+                            onPress={() => navigation.navigate('Signup')}
+                        >
+                            <Text style={styles.signupText}>회원가입</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <TouchableOpacity 
+                        onPress={() => navigation.navigate('Login')}
+                    >
+                        <Text>내정보</Text>
+                    </TouchableOpacity>
+                </LinearGradient>
+            </View>
+    );
 }
 
 const styles = StyleSheet.create({

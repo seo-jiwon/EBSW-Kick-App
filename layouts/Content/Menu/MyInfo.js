@@ -1,12 +1,124 @@
-import React, { Component } from "react";
+//import React, { Component } from "react";
+import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput } from "react-native";
 
-class MyInfo extends Component {
-    constructor({ props }) {
-        super(props);
-    }
+// class MyInfo extends Component {
+//     constructor({ props }) {
+//         super(props);
+//     }
 
-    render() {
+//     render() {
+//         return (
+//             <View style={styles.container}>
+//                 <View style={styles.bodyView}>
+//                     <View style={styles.titleView}>
+//                         <View style={styles.titleBorderView}>
+//                             <Text style={styles.titleName}>
+//                                 이름
+//                         </Text>
+//                         </View>
+
+//                         <View style={styles.titleBorderView}>
+//                             <Text style={styles.titleName}>
+//                                 아이디
+//                         </Text>
+//                         </View>
+
+//                         <View style={styles.titleBorderView}>
+//                             <Text style={styles.titleName}>
+//                                 비밀번호
+//                         </Text>
+//                         </View>
+
+//                         <View style={styles.titleBorderView}>
+//                             <Text style={styles.titleName}>
+//                                 닉네임
+//                         </Text>
+//                         </View>
+
+//                         <View style={styles.titleBorderView}>
+//                             <Text style={styles.titleName}>
+//                                 전화번호
+//                         </Text>
+//                         </View>
+
+//                         <View style={styles.titleBorderView}>
+//                             <Text style={styles.titleName}>
+//                                 이메일
+//                         </Text>
+//                         </View>
+
+//                         <View style={styles.titleBorderView}>
+//                             <Text style={styles.titleName}>
+//                                 카드정보
+//                         </Text>
+//                         </View>
+
+//                     </View>
+//                     <View style={styles.contentView}>
+//                         <Text style={styles.nameText}>
+//                             마삐삐
+//                         </Text>
+//                         <Text style={styles.idText}>
+//                             rkskekfkakqktk00
+//                         </Text>
+//                         <Text style={styles.pwText}>
+//                             **********
+//                         </Text>
+//                         <Text style={styles.aliasText}>
+//                             애플망고
+//                         </Text>
+//                         <Text style={styles.phoneText}>
+//                             010-0000-9999
+//                         </Text>
+//                         <Text style={styles.emailText}>
+//                             rkskekfkak00@gmail.com
+//                         </Text>
+//                         <Text style={styles.cardText}>
+//                             신한 0000
+//                         </Text>
+//                     </View>
+//                     <View style={styles.buttonView}>
+//                         <TouchableOpacity style={styles.pwBtn}>
+//                             <Text>
+//                                 변경
+//                             </Text>
+//                         </TouchableOpacity>
+//                         <TouchableOpacity style={styles.aliasBtn}>
+//                             <Text>
+//                                 변경
+//                             </Text>
+//                         </TouchableOpacity>
+//                         <TouchableOpacity style={styles.phoneBtn}>
+//                             <Text>
+//                                 변경
+//                             </Text>
+//                         </TouchableOpacity>
+//                         <TouchableOpacity style={styles.emailBtn}>
+//                             <Text>
+//                                 변경
+//                             </Text>
+//                         </TouchableOpacity>
+//                         <TouchableOpacity style={styles.cardBtn}>
+//                             <Text>
+//                                 변경
+//                             </Text>
+//                         </TouchableOpacity>
+//                     </View>
+//                 </View>
+//                 <View style={styles.bottommView}>
+//                     <TouchableOpacity style={styles.confirmBtn}>
+//                         <Text style={styles.confirmText}>
+//                             확인
+//                         </Text>
+//                     </TouchableOpacity>
+//                 </View>
+//             </View>
+//         );
+//     }
+// }
+
+function MyInfo({ navigation }) {
         return (
             <View style={styles.container}>
                 <View style={styles.bodyView}>
@@ -114,7 +226,6 @@ class MyInfo extends Component {
                 </View>
             </View>
         );
-    }
 }
 
 const styles = StyleSheet.create({

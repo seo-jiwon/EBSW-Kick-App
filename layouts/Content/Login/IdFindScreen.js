@@ -15,7 +15,7 @@ class IdFindScreen extends Component {
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.pwLogoBtn}
-            onPress={() => this.props.navigation.navigate('PwFind')}
+            onPress={() => navigation.navigate('PwFind')}
           >
             <Text style={styles.pwLogoText}>비밀번호 찾기</Text>
           </TouchableOpacity>
