@@ -1,4 +1,4 @@
-# ebsw-kickboard
+# EBSW-Kickboard
 
 > 프로젝트 기간 : 2021.05 ~ 2021.09 (2021.08 중단)
 
